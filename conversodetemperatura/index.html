@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de temperatura</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: arial, sans-serif;
+            height: 100vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #7edbd5,  #e5c1ac); /*Fundo degradê */
+        }
+
+        .container {
+            background: rgba(255, 255, 255,0.2);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px  rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 300px;
+            width: 100%;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            width: 100%;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 16px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            width: 100px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button.houver {
+            background-color: #45a049;
+        }
+
+        .resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Conversor de Fahrenheit para Celsius</h2>
+        <input type="number" id="Fahrenheit" placeholder="Digite *F">
+
+        <button onclick="converter()">Converter</button>
+        <div clas="resultado" id="resultado"></div>
+    </div>
+
+    <script>
+        function converter() {
+            const Fahrenheit = parseFloat(document.getElementById(`Fahrenheit`).volue);
+            const resultado = document.getElementById(`resultado`);
+
+            if (isNaN(Fahrenheit)) {
+                resultado.textContent = "Por favor, digite um número válido";
+                return;
+            }
+            const celsius = (Fahrenheit - 32) * 5 / 9;
+            resultado.textContent = `${Fahrenheit}*F equivalem a ${celsius.toLocaleString(`pt-BR`, {
+                minimumFractionDigits: 2, maximumFractionDigits: 2})}*C.`;
+        }
+    </script>
+</body>
+</html>
